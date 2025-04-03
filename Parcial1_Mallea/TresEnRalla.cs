@@ -1,15 +1,13 @@
 using System.Diagnostics;
 
 public class TressEnRalla{
-        public string[] Tablero ={"[]","[]","[]","[]","[]","[]","[]","[]","[]"};
+        public Tableros TableroJuego =new Tableros();
         public string CaracterJugador;
         public string CaracterCompu;
         public int Orden;
-        public int TamanoExtraBordes = 0;
         
         public void JugarDeNuevo(){
-            string[] nuevo_tablero = {"[]","[]","[]","[]","[]","[]","[]","[]","[]"};
-            Tablero = nuevo_tablero;
+            TableroJuego = new Tableros();
             InicciarJuego();
         }
         public void ElegirCaracter(){
@@ -68,34 +66,16 @@ public class TressEnRalla{
                 return PedirOpcion();
             }
         }
-        public void MostarTablero(){
-            int SaltoLinea=0;
-            string Bordes = "==============================";
-            for(int i = 0; i < TamanoExtraBordes; i++){
-                Bordes += "=";
-            }
-            Console.WriteLine(Bordes);
-            for(int i =0; i <Tablero.Length; i++){
-                if(SaltoLinea == 3){
-                    Console.WriteLine("");
-                    SaltoLinea = 0;
-                }
-                Console.Write($"| {i+1}. " + Tablero[i]+"  |");
-                SaltoLinea ++;
-            }
-            Console.WriteLine("");
-            Console.WriteLine(Bordes);
-        }
         public void IA_Basica(){
             int[] PosicionesPosibles = {0,1,2,3,4,5,6,7,8};
             Random rand = new Random();
             int PosicionRandom = PosicionesPosibles[rand.Next(8)];
             bool Coloco = false;
             while(Coloco == false){
-                if(Tablero.Contains("[]")){
-                    if(Tablero[PosicionRandom] == "[]"){
-                        Tablero[PosicionRandom] = $"[{CaracterCompu}]";
-                        TamanoExtraBordes ++;
+                if(TableroJuego.Tablero.Contains("[]")){
+                    if(TableroJuego.Tablero[PosicionRandom] == "[]"){
+                        TableroJuego.Tablero[PosicionRandom] = $"[{CaracterCompu}]";
+                        TableroJuego.ExtraTamano ++;
                         break;
                     }
                     else{
@@ -131,14 +111,15 @@ public class TressEnRalla{
             }
         }
         public void InicciarJuego(){
+            TableroJuego = new Tableros();
             Console.WriteLine("==============================================================");
             Console.WriteLine(@"||Bienvenido a Tres En Ralla Para jugar               ||
 ||Introduce el numero a lado izquierdo de               || 
 ||la casilla donde quieras insertar tu movimineto               ||
 ==================================================================");
             ElegirCaracter();
-            while(Tablero.Contains("[]")){
-                MostarTablero();
+            while(TableroJuego.Tablero.Contains("[]")){
+                TableroJuego.MostarTablero();
                 if(Orden == 1){
                     EleccionJugador();
                     Orden =2;
@@ -147,10 +128,7 @@ public class TressEnRalla{
                     IA_Basica();
                     Orden =1;
                 }
-                if(Tablero.Contains("[]") != true){
-                    Victoria();
-                    break;
-                }
+                Victoria();
                 string Espera = Console.ReadLine();
                 Console.Clear();
             }
@@ -160,10 +138,10 @@ public class TressEnRalla{
             int Lugar = PedirOpcion()-1;
              bool Coloco = false;
                 while(Coloco == false){
-                if(Tablero.Contains("[]")){
-                    if(Tablero[Lugar] == "[]"){
-                        Tablero[Lugar] = $"[{CaracterJugador}]";
-                        TamanoExtraBordes ++;
+                if(TableroJuego.Tablero.Contains("[]")){
+                    if(TableroJuego.Tablero[Lugar] == "[]"){
+                        TableroJuego.Tablero[Lugar] = $"[{CaracterJugador}]";
+                        TableroJuego.ExtraTamano ++;
                         break;
                     }
                     else{
@@ -183,7 +161,7 @@ public class TressEnRalla{
             string[] Caracteres = {"[O]","[X]"};
             while(Victoria != true){
                 string Caracter = Caracteres[i];
-                if(Tablero[0] == Caracter && Tablero[1] == Caracter&& Tablero[2] == Caracter){
+                if(TableroJuego.Tablero[0] == Caracter && TableroJuego.Tablero[1] == Caracter&& TableroJuego.Tablero[2] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -204,7 +182,7 @@ public class TressEnRalla{
                     }
                     break;
                 }
-                else if(Tablero[6] == Caracter && Tablero[7] == Caracter&& Tablero[8] == Caracter){
+                else if(TableroJuego.Tablero[6] == Caracter && TableroJuego.Tablero[7] == Caracter&& TableroJuego.Tablero[8] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -224,7 +202,7 @@ public class TressEnRalla{
                         break;
                     }
                 }
-                else if(Tablero[0] == Caracter && Tablero[3] == Caracter&& Tablero[6] == Caracter){
+                else if(TableroJuego.Tablero[0] == Caracter && TableroJuego.Tablero[3] == Caracter&& TableroJuego.Tablero[6] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -244,7 +222,7 @@ public class TressEnRalla{
                         break;
                     }
                 }
-                else if(Tablero[2] == Caracter && Tablero[5] == Caracter&& Tablero[8] == Caracter){
+                else if(TableroJuego.Tablero[2] == Caracter && TableroJuego.Tablero[5] == Caracter&& TableroJuego.Tablero[8] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -264,7 +242,7 @@ public class TressEnRalla{
                         break;
                     }
                 }
-                else if(Tablero[0] == Caracter && Tablero[4] == Caracter&& Tablero[8] == Caracter){
+                else if(TableroJuego.Tablero[0] == Caracter && TableroJuego.Tablero[4] == Caracter&& TableroJuego.Tablero[8] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -284,7 +262,7 @@ public class TressEnRalla{
                         break;
                     }
                 }
-                else if(Tablero[2] == Caracter && Tablero[4] == Caracter&& Tablero[6] == Caracter){
+                else if(TableroJuego.Tablero[2] == Caracter && TableroJuego.Tablero[4] == Caracter&& TableroJuego.Tablero[6] == Caracter){
                     Console.WriteLine("==============================================");
                     Console.WriteLine($"Gano El: {Caracter}");
                     Console.WriteLine("Quiere jugar de nuevo");
@@ -306,7 +284,11 @@ public class TressEnRalla{
                 }
                 i ++;
                 if(i == 2){
-                    Console.WriteLine("==============================================");
+                    if(TableroJuego.Tablero.Contains("[]") == true){
+                        break;
+                    }
+                    else{
+                        Console.WriteLine("==============================================");
                     Console.WriteLine($"Empate");
                     Console.WriteLine("Quiere jugar de nuevo");
                     Console.WriteLine("1. Si");
@@ -323,6 +305,7 @@ public class TressEnRalla{
                         string Espera = Console.ReadLine();
                         Console.Clear();
                         break;
+                    }
                     }
                     break;
                 }
