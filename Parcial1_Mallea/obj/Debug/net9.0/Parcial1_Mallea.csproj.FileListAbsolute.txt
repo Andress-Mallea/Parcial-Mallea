@@ -1,0 +1,14 @@
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.AssemblyInfoInputs.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.AssemblyInfo.cs
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.csproj.CoreCompileInputs.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\bin\Debug\net9.0\Parcial1_Mallea.exe
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\bin\Debug\net9.0\Parcial1_Mallea.deps.json
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\bin\Debug\net9.0\Parcial1_Mallea.runtimeconfig.json
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\bin\Debug\net9.0\Parcial1_Mallea.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\bin\Debug\net9.0\Parcial1_Mallea.pdb
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\refint\Parcial1_Mallea.dll
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.pdb
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\Parcial1_Mallea.genruntimeconfig.cache
+C:\Users\MSI LAPTOP\Desktop\Poryectos Progra\Parcial1_Mallea\obj\Debug\net9.0\ref\Parcial1_Mallea.dll
